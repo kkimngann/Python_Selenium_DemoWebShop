@@ -2,7 +2,14 @@
 __pycache__/
 *.py[cod]
 *$py.class
+/allure-report
+/allure-results
+/test/steps_definition/allure-results
+/test/steps_definition/allure-report
 
+.DS_store
+.gitignore
+.idea
 # C extensions
 *.so
 
