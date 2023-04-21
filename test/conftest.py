@@ -1,7 +1,7 @@
 import configparser
-
 import allure
 import pytest
+from allure_commons.types import AttachmentType
 
 from browser.driver_factory import Driver
 
@@ -25,4 +25,8 @@ def pytest_bdd_after_scenario(request):
     driver = request.getfixturevalue('driver')
     driver.driver.quit()
 
+
+def pytest_bdd_step_error(request):
+    driver = request.getfixturevalue('driver')
+    allure.attach(driver.driver.get_screenshot_as_png(), name="Screenshot failed steps", attachment_type=AttachmentType.PNG)
 
